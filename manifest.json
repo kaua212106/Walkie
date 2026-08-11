@@ -1,0 +1,22 @@
+{
+  "id": "./",
+  "name": "TalkWave",
+  "short_name": "TalkWave",
+  "description": "Mensagens, grupos, mídia e walkie-talkie com funcionamento local e offline.",
+  "lang": "pt-BR",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#07111f",
+  "theme_color": "#07111f",
+  "categories": ["social", "communication", "utilities"],
+  "icons": [
+    {
+      "src": "./icone.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
