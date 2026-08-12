@@ -2,7 +2,7 @@
   "id": "./",
   "name": "TalkWave",
   "short_name": "TalkWave",
-  "description": "Mensagens, grupos, mídia e walkie-talkie com funcionamento local e offline.",
+  "description": "Mensageiro TalkWave com conversas locais/offline e mensagens de texto online em tempo real via Firebase.",
   "lang": "pt-BR",
   "start_url": "./index.html",
   "scope": "./",
@@ -10,7 +10,11 @@
   "orientation": "portrait",
   "background_color": "#07111f",
   "theme_color": "#07111f",
-  "categories": ["social", "communication", "utilities"],
+  "categories": [
+    "social",
+    "communication",
+    "utilities"
+  ],
   "icons": [
     {
       "src": "./icone.png",
