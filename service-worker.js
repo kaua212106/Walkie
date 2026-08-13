@@ -1,4 +1,4 @@
-const CACHE = 'talkwave-v4.0.1';
+const CACHE = 'talkwave-v4.1.0';
 const CORE = [
   './',
   './index.html',

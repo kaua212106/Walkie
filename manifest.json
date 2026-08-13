@@ -2,7 +2,7 @@
   "id": "./",
   "name": "TalkWave",
   "short_name": "TalkWave",
-  "description": "Mensageiro TalkWave com conversas locais/offline e mensagens de texto online em tempo real via Firebase.",
+  "description": "Mensageiro TalkWave com conversas offline e sincronização online de texto e áudios curtos via Firebase.",
   "lang": "pt-BR",
   "start_url": "./index.html",
   "scope": "./",

@@ -1,4 +1,4 @@
-// TalkWave 4.0 - configuração do Firebase
+// TalkWave 4.1 - configuração do Firebase
 // Projeto Firebase: Walkiwave
 // A configuração Web identifica o projeto. As permissões de acesso ficam nas regras do Firestore.
 window.TALKWAVE_FIREBASE_CONFIG = {
