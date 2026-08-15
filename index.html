@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#07111f">
+  <meta name="theme-color" content="#667eea">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -36,11 +36,118 @@
     .modal{display:none;position:absolute;inset:0;background:rgba(0,0,0,.58);backdrop-filter:blur(5px);z-index:50;padding:20px;align-items:flex-end}.modal.active{display:flex}.sheet{width:100%;max-height:88dvh;overflow:auto;background:var(--card);border:1px solid var(--line);border-radius:25px 25px 18px 18px;padding:18px;box-shadow:0 -20px 60px rgba(0,0,0,.3)}.sheetHandle{width:44px;height:4px;border-radius:999px;background:var(--line);margin:-4px auto 14px}.sheet h3{font-size:18px;margin-bottom:14px}.modalActions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}.memberCheck{display:flex;align-items:center;gap:10px;padding:10px;border:1px solid var(--line);border-radius:14px;background:var(--card2)}.memberCheck input{width:auto}.reactionPicker{display:flex;justify-content:space-between;gap:6px}.reactionPicker button{width:45px;height:42px;border:1px solid var(--line);border-radius:13px;background:var(--card2);font-size:20px}.profileStats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:15px}.stat{padding:12px 8px;border-radius:15px;background:var(--card2);text-align:center}.stat b{display:block;font-size:18px}.stat small{color:var(--muted);font-size:10px}.divider{height:1px;background:var(--line);margin:14px 0}.miniText{font-size:11px;color:var(--muted);line-height:1.45}.toast{position:absolute;left:16px;right:16px;bottom:calc(84px + env(safe-area-inset-bottom));z-index:100;transform:translateY(30px);opacity:0;pointer-events:none;transition:.22s;background:rgba(15,31,52,.96);color:#fff;border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:12px 14px;box-shadow:var(--shadow);font-size:13px}.toast.show{opacity:1;transform:none}.hidden{display:none!important}
     .lockScreen{display:none;position:absolute;inset:0;z-index:200;background:radial-gradient(circle at 50% 10%,rgba(0,170,255,.2),transparent 35%),var(--bg);padding:calc(50px + env(safe-area-inset-top)) 24px 30px;align-items:center;justify-content:center;text-align:center}.lockScreen.active{display:flex}.lockBox{width:100%;max-width:330px}.lockIcon{width:84px;height:84px;border-radius:28px;background:linear-gradient(135deg,var(--blue),var(--green));display:grid;place-items:center;margin:0 auto 18px;font-size:38px;color:#001b1d}.lockBox h2{margin-bottom:6px}.lockBox p{color:var(--muted);font-size:12px;margin-bottom:18px}.lockBox input{text-align:center;font-size:24px;letter-spacing:8px}.lockBox button{margin-top:10px}
     @media(min-width:700px){body{background:#030813}.app{margin:12px auto;height:calc(100dvh - 24px);border-radius:28px}.chatShell,.lockScreen{border-radius:28px;overflow:hidden}.modal{border-radius:28px}.bottomNav{border-radius:0 0 28px 28px}}
+
+    /* Standard visual used across the user's other apps */
+    :root{
+      --primary:#667eea;--primary2:#764ba2;--primaryStrong:#5363dc;
+      --bg:#17152b;--bg2:#221d3d;--card:#211f36;--card2:#2b2844;--text:#f5f4ff;
+      --muted:#aca8c4;--line:rgba(255,255,255,.09);--blue:#7d8df2;--green:#2fd19b;
+      --green2:#1caf80;--danger:#e75d6f;--warning:#e4a43c;--shadow:0 12px 30px rgba(15,12,40,.20);--radius:22px
+    }
+    body.light{
+      --bg:#eef2ff;--bg2:#f7f8fc;--card:rgba(255,255,255,.97);--card2:#f4f6fb;
+      --text:#20283a;--muted:#687187;--line:rgba(31,41,55,.08);--blue:#667eea;
+      --green:#2ca574;--green2:#228963;--danger:#d94c4c;--warning:#d99023;
+      --shadow:0 12px 30px rgba(27,33,62,.10)
+    }
+    html,body{
+      background:
+        radial-gradient(circle at 12% 8%,rgba(255,255,255,.38) 0 7%,transparent 24%),
+        radial-gradient(circle at 88% 18%,rgba(139,92,246,.20) 0 8%,transparent 28%),
+        linear-gradient(145deg,var(--primary) 0%,#6556c9 45%,var(--primary2) 100%);
+      background-attachment:fixed
+    }
+    body:not(.light){
+      background:
+        radial-gradient(circle at 14% 9%,rgba(126,114,220,.18),transparent 25%),
+        linear-gradient(145deg,#242044 0%,#302653 48%,#3b2756 100%);
+    }
+    .app{width:min(100%,650px);height:100dvh;margin:auto;background:transparent;box-shadow:none}
+    .header{
+      min-height:78px;padding:calc(10px + env(safe-area-inset-top)) 16px 10px;
+      display:grid;grid-template-columns:44px minmax(0,1fr) 44px;align-items:center;gap:10px;
+      background:linear-gradient(180deg,rgba(55,48,130,.54),rgba(74,63,157,.28));
+      border-bottom:1px solid rgba(255,255,255,.14);box-shadow:0 10px 30px rgba(25,22,75,.10);
+      backdrop-filter:blur(18px) saturate(135%);-webkit-backdrop-filter:blur(18px) saturate(135%)
+    }
+    .brandText{text-align:center;min-width:0;color:#fff}
+    .brandText h1{font-size:18px;letter-spacing:-.4px}
+    .brandText small{font-size:9px;opacity:.84;margin-top:3px}
+    .topBtn{
+      width:44px;height:44px;border:0;border-radius:14px;background:rgba(255,255,255,.96);
+      color:#38405a;display:grid;place-items:center;font-size:20px;font-weight:850;
+      box-shadow:0 6px 16px rgba(24,29,72,.12)
+    }
+    .topAdd{font-size:26px;color:var(--primary)}
+    .content{padding:18px 14px 98px}
+    .sectionTitle{color:#fff;margin:2px 2px 14px}.sectionTitle h2{font-size:22px;letter-spacing:-.55px}.sectionTitle p{color:rgba(255,255,255,.83)}
+    .card{border-radius:24px;padding:18px 16px;border:1px solid var(--line);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    .soft{background:var(--card2)}
+    .notice{background:var(--card);border-color:var(--line)}
+    input,textarea,select{border-radius:14px}
+    input:focus,textarea:focus,select:focus{border-color:rgba(102,116,234,.55);box-shadow:0 0 0 4px rgba(102,116,234,.10)}
+    .primary{background:linear-gradient(135deg,var(--primary),var(--primaryStrong));color:#fff;box-shadow:0 8px 18px rgba(83,99,220,.18)}
+    .secondary{background:var(--card2);color:var(--text);border-color:var(--line)}
+    .ghostBtn{color:var(--muted);background:transparent;border-color:var(--line)}
+    .avatar{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;box-shadow:0 8px 22px rgba(102,116,234,.18)}
+    .avatar.group{background:linear-gradient(135deg,#8b6ae6,var(--primary))}
+    .contact{border-radius:18px;box-shadow:0 4px 14px rgba(27,33,62,.05)}
+    .typeTag{color:var(--primary)}
+    .fab{display:none!important}
+    .bottomNav{
+      left:12px;right:12px;bottom:8px;height:66px;padding:6px;gap:3px;
+      border:1px solid rgba(255,255,255,.58);border-radius:21px;
+      background:rgba(255,255,255,.92);box-shadow:0 14px 38px rgba(24,29,62,.16);
+      backdrop-filter:blur(22px) saturate(150%);-webkit-backdrop-filter:blur(22px) saturate(150%)
+    }
+    body:not(.light) .bottomNav{background:rgba(31,28,51,.94);border-color:rgba(255,255,255,.08)}
+    .navBtn{height:54px;border-radius:15px;color:#858da1;font-size:9px}
+    .navBtn span{font-size:20px}
+    .navBtn.active{color:var(--primaryStrong);background:rgba(102,116,234,.10)}
+    body:not(.light) .navBtn.active{color:#aab4ff;background:rgba(102,116,234,.16)}
+    .modal{position:absolute;align-items:center;padding:14px;background:rgba(13,18,31,.50);backdrop-filter:blur(8px)}
+    .sheet{width:min(520px,100%);max-height:90dvh;border-radius:24px;padding:20px 17px;box-shadow:0 24px 70px rgba(18,25,48,.28);border:1px solid rgba(255,255,255,.16)}
+    .sheetHandle{display:none}.sheet h3{font-size:20px;letter-spacing:-.35px}
+    .chatShell{background:var(--bg)}
+    .chatHeader{
+      padding:calc(10px + env(safe-area-inset-top)) 12px 10px;
+      background:var(--card);border-bottom:1px solid var(--line);box-shadow:0 6px 18px rgba(27,33,62,.08)
+    }
+    .chatHeader .iconBtn{border-radius:13px}
+    .messages{
+      background:
+        radial-gradient(circle at 20% 10%,rgba(102,116,234,.08),transparent 27%),
+        var(--bg)
+    }
+    .mine .bubble{background:linear-gradient(135deg,var(--primary),var(--primaryStrong));color:#fff}
+    .composer .send{background:linear-gradient(135deg,var(--primary),var(--primaryStrong));color:#fff}
+    .composer .mic,.composer .attach{border-radius:13px}
+    .walkieButton{
+      background:radial-gradient(circle at 35% 30%,#aab4ff,var(--primary) 56%,#4e3f94);
+      color:#fff;border-color:rgba(102,116,234,.14);box-shadow:0 0 0 9px rgba(102,116,234,.05),0 18px 50px rgba(74,63,157,.25)
+    }
+    .meter>div{background:linear-gradient(90deg,var(--primary),var(--primary2))}
+    .switch input:checked+span{background:var(--primary)}
+    .lockIcon{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff}
+    .lockScreen{background:radial-gradient(circle at 50% 10%,rgba(102,116,234,.18),transparent 35%),var(--bg)}
+    .toast{background:rgba(40,43,62,.97);border-color:rgba(255,255,255,.09)}
+    @media(min-width:700px){
+      body{background:
+        radial-gradient(circle at 12% 8%,rgba(255,255,255,.38) 0 7%,transparent 24%),
+        linear-gradient(145deg,var(--primary),var(--primary2))}
+      .app{margin:0 auto;height:100dvh;border-radius:0}
+      .chatShell,.lockScreen,.modal{border-radius:0}
+      .bottomNav{border-radius:21px}
+    }
   </style>
 </head>
 <body>
 <div class="app" id="app">
-  <header class="header"><div class="brand"><div class="brandIcon">📡</div><div class="brandText"><h1>TalkWave</h1><small id="headerSubtitle">Mensagens, mídia, grupos e rádio</small></div></div><div class="headerActions"><button class="iconBtn" id="quickTheme" aria-label="Mudar tema">◐</button></div></header>
+  <header class="header">
+    <button class="topBtn" id="topMenuBtn" aria-label="Abrir menu">☰</button>
+    <div class="brandText"><h1>TalkWave</h1><small id="headerSubtitle">Mensagens, mídia, grupos e rádio</small></div>
+    <button class="topBtn topAdd" id="topAddBtn" aria-label="Nova conversa">＋</button>
+  </header>
   <main class="content" id="content">
     <section class="page active" id="page-chats">
       <div class="notice card" id="modeNotice"><div id="modeIcon">ℹ️</div><div><b id="modeTitle">Modo local</b><p id="modeText">O TalkWave continua funcionando localmente. Configure o Firebase para trocar mensagens de texto entre aparelhos em tempo real.</p></div></div>
@@ -62,6 +169,7 @@
   <nav class="bottomNav"><button class="navBtn active" data-page="chats"><span>💬</span>Chats</button><button class="navBtn" data-page="walkie"><span>📡</span>Rádio</button><button class="navBtn" data-page="profile"><span>👤</span>Perfil</button><button class="navBtn" data-page="settings"><span>⚙️</span>Ajustes</button></nav>
   <section class="chatShell" id="chatShell"><div class="chatHeader"><button class="iconBtn" id="closeChat">←</button><div class="avatar sm" id="chatAvatar">C</div><div class="chatIdentity"><b id="chatName">Conversa</b><small id="chatStatus">modo local</small></div><button class="iconBtn" id="chatMenuBtn">⋮</button></div><div class="messages" id="messages"></div><div class="replyComposer" id="replyComposer"><div><b>Respondendo</b><small id="replyPreview"></small></div><button id="cancelReply">✕</button></div><div class="composer"><button class="attach" id="attachBtn">＋</button><button class="mic" id="chatMic">🎙️</button><textarea id="messageInput" rows="1" placeholder="Mensagem" maxlength="4000"></textarea><button class="send" id="sendMessage">➤</button><input id="attachmentInput" type="file" accept="image/*,video/*,audio/*,.pdf,.txt,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.zip,.rar" class="hidden"></div></section>
 
+  <div class="modal" id="appMenuModal"><div class="sheet"><div class="sheetHandle"></div><h3>Menu</h3><div class="stack"><button class="secondary" data-menu-page="chats">💬 Conversas</button><button class="secondary" data-menu-page="walkie">📡 Rádio</button><button class="secondary" data-menu-page="profile">👤 Meu perfil</button><button class="secondary" data-menu-page="settings">⚙️ Configurações</button><button class="secondary" id="quickTheme">◐ Alternar tema</button><button class="ghostBtn" data-close="appMenuModal">Fechar</button></div></div></div>
   <div class="modal" id="newMenuModal"><div class="sheet"><div class="sheetHandle"></div><h3>Nova conversa</h3><div class="stack"><button class="secondary" id="newContactBtn">👤 Adicionar contato</button><button class="secondary" id="newGroupBtn">👥 Criar grupo</button><button class="ghostBtn" data-close="newMenuModal">Fechar</button></div></div></div>
   <div class="modal" id="contactModal"><div class="sheet"><div class="sheetHandle"></div><h3 id="contactModalTitle">Adicionar contato</h3><div class="stack"><div class="field"><label for="contactName">Nome</label><input id="contactName" maxlength="30"></div><div class="field"><label for="contactNumber">Número TalkWave</label><input id="contactNumber" inputmode="numeric" maxlength="10" placeholder="10 dígitos"><small class="miniText" id="contactLookupHint">No modo online, o código é conferido no Firebase antes de adicionar.</small></div></div><div class="modalActions"><button class="ghostBtn" data-close="contactModal">Cancelar</button><button class="primary" id="saveContact">Salvar</button></div></div></div>
   <div class="modal" id="groupModal"><div class="sheet"><div class="sheetHandle"></div><h3>Criar grupo</h3><div class="stack"><div class="field"><label for="groupName">Nome do grupo</label><input id="groupName" maxlength="40" placeholder="Ex.: Amigos"></div><div><label class="miniText">Participantes</label><div class="stack" id="groupMembers" style="margin-top:8px"></div></div></div><div class="modalActions"><button class="ghostBtn" data-close="groupModal">Cancelar</button><button class="primary" id="saveGroup">Criar</button></div></div></div>
@@ -77,7 +185,7 @@
 'use strict';
 const KEYS={profile:'talkwave_profile_v3',contacts:'talkwave_contacts_v3',groups:'talkwave_groups_v3',settings:'talkwave_settings_v3'};
 const defaultProfile={number:'',name:'Usuário',bio:'',status:'Online'};
-const defaultSettings={light:false,sound:true,showLocalNotice:true,pinHash:'',lockOnHide:false};
+const defaultSettings={light:true,sound:true,showLocalNotice:true,pinHash:'',lockOnHide:false};
 const MAX_ONLINE_AUDIO_BYTES=520000,MAX_ONLINE_AUDIO_MS=45000,MAX_LOCAL_AUDIO_MS=60000;
 let profile=loadJSON(KEYS.profile,defaultProfile),contacts=loadJSON(KEYS.contacts,[]),groups=loadJSON(KEYS.groups,[]),settings=loadJSON(KEYS.settings,defaultSettings);
 let activeThreadRef=null,editingContactId=null,activeMessageId=null,replyingToId=null,recorder=null,recorderStream=null,recorderParts=[],recordStartedAt=0,recordingTimer=null,audioContext=null,analyser=null,meterRAF=null,recordingTarget=null,deferredInstallPrompt=null,objectUrls=[];
@@ -87,7 +195,7 @@ function clone(v){return JSON.parse(JSON.stringify(v))}function loadJSON(k,f){tr
 function generateNumber(){return String(Math.floor(1000000000+Math.random()*9000000000))}if(!/^\d{10}$/.test(String(profile.number||''))){profile.number=generateNumber();saveState()}
 function initials(n){const p=String(n||'U').trim().split(/\s+/).filter(Boolean);return(p.slice(0,2).map(x=>x[0]).join('')||'U').toUpperCase()}function formatTime(d){try{return new Intl.DateTimeFormat('pt-BR',{hour:'2-digit',minute:'2-digit'}).format(new Date(d))}catch{return''}}function formatListDate(d){if(!d)return'';const x=new Date(d),t=new Date();return x.toDateString()===t.toDateString()?formatTime(x):new Intl.DateTimeFormat('pt-BR',{day:'2-digit',month:'2-digit'}).format(x)}function formatDuration(ms){const s=Math.max(0,Math.round(ms/1000));return`${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`}function formatBytes(n=0){if(n<1024)return`${n} B`;if(n<1048576)return`${(n/1024).toFixed(1)} KB`;return`${(n/1048576).toFixed(1)} MB`}
 function toast(m){const e=$('#toast');e.textContent=m;e.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>e.classList.remove('show'),2400)}function beep(){if(!settings.sound)return;try{const c=new(window.AudioContext||window.webkitAudioContext)(),o=c.createOscillator(),g=c.createGain();o.frequency.value=520;g.gain.setValueAtTime(.035,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.08);o.connect(g).connect(c.destination);o.start();o.stop(c.currentTime+.08);o.onended=()=>c.close()}catch{}}
-function setTheme(){document.body.classList.toggle('light',!!settings.light);$('#themeSwitch').checked=!!settings.light;$('meta[name="theme-color"]').content=settings.light?'#f7fbff':'#07111f'}function switchPage(p){$$('.page').forEach(x=>x.classList.toggle('active',x.id===`page-${p}`));$$('.navBtn').forEach(x=>x.classList.toggle('active',x.dataset.page===p));$('#addFab').classList.toggle('hidden',p!=='chats');$('#content').scrollTop=0;if(p==='profile')renderProfile();if(p==='walkie')renderWalkieThreads();if(p==='settings')renderSettings()}
+function setTheme(){document.body.classList.toggle('light',!!settings.light);$('#themeSwitch').checked=!!settings.light;$('meta[name="theme-color"]').content=settings.light?'#667eea':'#2b2349'}function switchPage(p){$$('.page').forEach(x=>x.classList.toggle('active',x.id===`page-${p}`));$$('.navBtn').forEach(x=>x.classList.toggle('active',x.dataset.page===p));$('#addFab').classList.toggle('hidden',p!=='chats');$('#content').scrollTop=0;if(p==='profile')renderProfile();if(p==='walkie')renderWalkieThreads();if(p==='settings')renderSettings()}
 function threadRef(type,id){return`${type}:${id}`}function parseRef(ref){const i=ref.indexOf(':');return{type:ref.slice(0,i),id:ref.slice(i+1)}}function getThread(ref=activeThreadRef){if(!ref)return null;const{type,id}=parseRef(ref);return type==='c'?contacts.find(x=>x.id===id):groups.find(x=>x.id===id)}function allThreads(){return[...contacts.map(c=>({ref:threadRef('c',c.id),type:'c',obj:c})),...groups.map(g=>({ref:threadRef('g',g.id),type:'g',obj:g}))]}function getLastMessage(t){return t.messages?.length?t.messages[t.messages.length-1]:null}function findMessage(t,id){return t?.messages?.find(m=>m.id===id)||null}
 function messagePreview(m){if(!m)return'Nenhuma mensagem ainda';if(m.deletedAt)return'Mensagem apagada';if(m.type==='audio')return`🎙️ Áudio ${m.duration?formatDuration(m.duration):''}`;if(m.type==='image')return'📷 Foto';if(m.type==='video')return'🎥 Vídeo';if(m.type==='file')return`📎 ${m.fileName||'Arquivo'}`;return m.text||'Mensagem'}
 function renderChats(){const q=$('#chatSearch').value.trim().toLowerCase(),list=$('#chatList');list.replaceChildren();const data=allThreads().filter(x=>!q||x.obj.name.toLowerCase().includes(q)||(x.obj.number||'').includes(q)).sort((a,b)=>Number(!!b.obj.favorite)-Number(!!a.obj.favorite)||new Date(getLastMessage(b.obj)?.createdAt||b.obj.createdAt||0)-new Date(getLastMessage(a.obj)?.createdAt||a.obj.createdAt||0));if(!data.length){const e=document.createElement('div');e.className='empty card';e.innerHTML=`<div class="emoji">💬</div><b>${q?'Nada encontrado':'Nenhuma conversa ainda'}</b><p>${q?'Tente outra busca.':'Use o botão + para adicionar um contato ou criar um grupo.'}</p>`;list.append(e);return}data.forEach(({ref,type,obj})=>{const item=document.createElement('div');item.className='contact';item.tabIndex=0;const av=document.createElement('div');av.className='avatar sm'+(type==='g'?' group':'');av.textContent=type==='g'?'👥':initials(obj.name);const main=document.createElement('div');main.className='contactMain';const n=document.createElement('b');n.textContent=obj.name;const tag=document.createElement('span');tag.className='typeTag';tag.textContent=type==='g'?'GRUPO':'';n.append(tag);const p=document.createElement('small');p.textContent=messagePreview(getLastMessage(obj));main.append(n,p);const meta=document.createElement('div');meta.className='contactMeta';const d=document.createElement('small');d.textContent=getLastMessage(obj)?formatListDate(getLastMessage(obj).createdAt):(type==='g'?`${obj.memberIds?.length||0} membros`:obj.number);meta.append(d);if(obj.favorite){const s=document.createElement('div');s.className='pin';s.textContent='⭐';meta.append(s)}item.append(av,main,meta);item.onclick=()=>openChat(ref);item.onkeydown=e=>{if(e.key==='Enter')openChat(ref)};list.append(item)})}
@@ -141,6 +249,9 @@ async changeNumber(){if(!this.ready){profile.number=generateNumber();saveState()
 };
 const Transport={mode:'local',async sendMessage(ref,msg){const onlineType=['text','audio'].includes(msg.type);if(FirebaseBridge.configured()&&parseRef(ref).type==='c'&&onlineType&&!FirebaseBridge.ready){msg.syncStatus='pending';saveState();FirebaseBridge.init();return{ok:false,status:'pending'}}return FirebaseBridge.sendMessage(ref,msg)},async updateMessage(m,patch){return FirebaseBridge.updateMessage(m,patch)},async deleteMessage(m){return FirebaseBridge.deleteMessage(m)},async sendReadReceipt(){return{ok:true,status:FirebaseBridge.ready?'firebase':'local'}},async sync(){return FirebaseBridge.resume()}};
 function migrateV2(){if(localStorage.getItem('talkwave_migrated_v3'))return;try{const p2=JSON.parse(localStorage.getItem('talkwave_profile_v2')||'null'),c2=JSON.parse(localStorage.getItem('talkwave_contacts_v2')||'null'),s2=JSON.parse(localStorage.getItem('talkwave_settings_v2')||'null');if(p2)profile={...defaultProfile,...p2};if(Array.isArray(c2)&&!contacts.length)contacts=c2.map(c=>({...c,status:c.status||'Offline',lastSeen:c.lastSeen||null,messages:(c.messages||[]).map(m=>({...m,mediaId:m.mediaId||m.audioId||null,reactions:m.reactions||{},syncStatus:m.syncStatus||'local'}))}));if(s2)settings={...defaultSettings,...s2};const oldName=localStorage.getItem('talkwave_nome'),oldNum=localStorage.getItem('talkwave_numero'),oldContacts=JSON.parse(localStorage.getItem('talkwave_contatos')||'[]');if(oldName&&profile.name==='Usuário')profile.name=oldName;if(/^\d{10}$/.test(oldNum||'')&&!p2)profile.number=oldNum;if(!contacts.length&&Array.isArray(oldContacts))contacts=oldContacts.filter(c=>/^\d{10}$/.test(String(c.numero||''))).map((c,i)=>({id:uid(),name:`Pessoa ${i+1}`,number:String(c.numero),favorite:false,status:'Offline',lastSeen:null,createdAt:nowISO(),messages:(c.mensagens||[]).filter(m=>m.tipo==='texto').map(m=>({id:uid(),type:'text',text:String(m.conteudo||''),createdAt:nowISO(),direction:'sent',syncStatus:'local',reactions:{}}))}));localStorage.setItem('talkwave_migrated_v3','1');saveState()}catch(e){console.warn('Migração:',e)}}
+$('#topMenuBtn').onclick=()=>showModal('appMenuModal');
+$('#topAddBtn').onclick=()=>showModal('newMenuModal');
+$$('[data-menu-page]').forEach(b=>b.onclick=()=>{hideModal('appMenuModal');switchPage(b.dataset.menuPage)});
 $$('.navBtn').forEach(b=>b.onclick=()=>switchPage(b.dataset.page));$('#quickTheme').onclick=()=>{settings.light=!settings.light;saveState();setTheme();renderSettings()};$('#chatSearch').oninput=renderChats;$('#addFab').onclick=()=>showModal('newMenuModal');$('#newContactBtn').onclick=()=>{hideModal('newMenuModal');openContactModal()};$('#newGroupBtn').onclick=()=>{hideModal('newMenuModal');openGroupModal()};$('#saveContact').onclick=saveContact;$('#contactNumber').oninput=e=>e.target.value=e.target.value.replace(/\D/g,'').slice(0,10);$('#saveGroup').onclick=saveGroup;$$('[data-close]').forEach(b=>b.onclick=()=>hideModal(b.dataset.close));$$('.modal').forEach(m=>m.onclick=e=>{if(e.target===m)hideModal(m.id)});$('#closeChat').onclick=closeChat;$('#sendMessage').onclick=sendText;$('#messageInput').onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendText()}};$('#attachBtn').onclick=()=>$('#attachmentInput').click();$('#attachmentInput').onchange=e=>{const f=e.target.files?.[0];if(f)handleAttachment(f);e.target.value=''};$('#chatMenuBtn').onclick=()=>{updateChatMenu();showModal('chatMenuModal')};$('#toggleFavorite').onclick=()=>{const t=activeObj();if(!t)return;t.favorite=!t.favorite;saveState();updateChatMenu();renderChats();toast(t.favorite?'Adicionado aos favoritos.':'Removido dos favoritos.')};$('#editThread').onclick=editThread;$('#simulateIncoming').onclick=simulateIncoming;$('#clearConversation').onclick=clearConversation;$('#deleteThread').onclick=deleteThread;$$('[data-react]').forEach(b=>b.onclick=()=>toggleReaction(activeMessageId,b.dataset.react));$('#replyMessage').onclick=setReply;$('#editMessage').onclick=openEditMessage;$('#saveEditedMessage').onclick=saveEditedMessage;$('#deleteMessage').onclick=deleteSelectedMessage;$('#downloadMessageMedia').onclick=downloadSelected;$('#cancelReply').onclick=()=>{replyingToId=null;updateReplyComposer()};$('#saveProfile').onclick=saveProfile;$('#copyNumber').onclick=copyNumber;$('#shareProfile').onclick=shareProfile;$('#themeSwitch').onchange=e=>{settings.light=e.target.checked;saveState();setTheme()};$('#soundSwitch').onchange=e=>{settings.sound=e.target.checked;saveState()};$('#localNoticeSwitch').onchange=e=>{settings.showLocalNotice=e.target.checked;saveState();renderSettings()};$('#lockOnHideSwitch').onchange=e=>{if(e.target.checked&&!settings.pinHash){e.target.checked=false;openPinModal();toast('Defina um PIN primeiro.');return}settings.lockOnHide=e.target.checked;saveState()};$('#setPinBtn').onclick=openPinModal;$('#savePin').onclick=savePin;$('#lockNowBtn').onclick=lockNow;$('#removePinBtn').onclick=removePin;$('#unlockBtn').onclick=unlock;$('#unlockPin').onkeydown=e=>{if(e.key==='Enter')unlock()};$('#unlockResetHint').onclick=()=>alert('Por segurança, o PIN não pode ser recuperado. Para remover sem o PIN seria necessário limpar os dados do site pelo navegador, o que também apaga as conversas locais.');$('#testOnline').onclick=()=>FirebaseBridge.init(true);$('#enableNotifications').onclick=requestNotifications;$('#testNotification').onclick=testNotification;$('#exportBackup').onclick=exportBackup;$('#importBackup').onclick=()=>$('#backupFile').click();$('#backupFile').onchange=e=>{const f=e.target.files?.[0];if(f)importBackupFile(f);e.target.value=''};$('#regenerateNumber').onclick=async()=>{if(!confirm('Gerar novo número TalkWave? Contatos que usam seu código antigo precisarão adicionar o novo.'))return;const ok=await FirebaseBridge.changeNumber();toast(ok?'Novo número gerado.':'Não foi possível trocar o número agora.');renderAll()};$('#clearAll').onclick=clearAll;
 const walkie=$('#walkieButton');walkie.onpointerdown=e=>{e.preventDefault();walkie.setPointerCapture?.(e.pointerId);startRecording('walkie')};walkie.onpointerup=e=>{e.preventDefault();stopRecording(true)};walkie.onpointercancel=()=>stopRecording(false);walkie.oncontextmenu=e=>e.preventDefault();$('#chatMic').onclick=()=>{if(recorder?.state==='recording'&&recordingTarget==='chat')stopRecording(true);else startRecording('chat')};document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'){if(settings.lockOnHide&&settings.pinHash)lockNow();FirebaseBridge.resume(true)}});window.addEventListener('focus',()=>FirebaseBridge.resume(true));window.addEventListener('pageshow',()=>FirebaseBridge.resume(true));document.addEventListener('keydown',e=>{if(e.key==='Escape'){const open=$$('.modal.active').pop();if(open)hideModal(open.id);else if($('#chatShell').classList.contains('active'))closeChat()}});
 window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredInstallPrompt=e;$('#installHint').textContent='O TalkWave está pronto para ser instalado neste aparelho.'});window.addEventListener('appinstalled',()=>{deferredInstallPrompt=null;toast('TalkWave instalado.')});$('#installApp').onclick=async()=>{if(deferredInstallPrompt){deferredInstallPrompt.prompt();await deferredInstallPrompt.userChoice;deferredInstallPrompt=null}else toast('Use “Adicionar à tela inicial/Instalar app” no menu do navegador.')};
