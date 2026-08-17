@@ -4,7 +4,8 @@ const CORE = [
   './index.html',
   './firebase-config.js',
   './manifest.json',
-  './icone.png'
+  './icone.png',
+  './auth-guard-v3.js'
 ];
 
 self.addEventListener('install', event => {
